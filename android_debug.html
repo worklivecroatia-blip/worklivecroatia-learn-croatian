@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<style>
+body{font-family:sans-serif;padding:16px;background:#1a1a2e;color:white;margin:0;}
+h3{color:#60a5fa;margin:14px 0 6px;font-size:14px;}
+.log{background:#0f172a;border-radius:8px;padding:8px;min-height:40px;font-size:11px;max-height:120px;overflow-y:auto;margin-bottom:8px;}
+.entry{padding:2px 0;border-bottom:1px solid #1e293b;}
+.ok{color:#4ade80;}.err{color:#f87171;}.info{color:#fbbf24;}
+button{padding:10px 16px;margin:4px;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;touch-action:manipulation;}
+.wcard{background:white;border-radius:11px;padding:20px 12px 11px;position:relative;color:#111;margin:6px 0;cursor:pointer;}
+.whr{font-size:15px;font-weight:700;}
+.wtr{font-size:12px;color:#666;}
+.wmic{position:absolute;top:7px;right:32px;width:22px;height:22px;border-radius:50%;background:#DC2626;border:none;color:white;font-size:10px;cursor:pointer;z-index:2;touch-action:manipulation;}
+.wplay{position:absolute;top:7px;right:7px;width:22px;height:22px;border-radius:50%;background:#0F2240;display:flex;align-items:center;justify-content:center;color:white;font-size:8px;}
+</style>
+</head>
+<body>
+<h2 style="font-size:16px">🤖 Android Debug</h2>
+<div id="info" style="font-size:10px;color:#94a3b8;word-break:break-all;margin-bottom:8px;"></div>
+
+<h3>TEST 1 — Button onclick</h3>
+<button style="background:#059669;color:white" onclick="log('✅ Button onclick works','ok')">Tap me (button)</button>
+<div class="log" id="l1"></div>
+
+<h3>TEST 2 — Div onclick (wcard style)</h3>
+<div class="wcard" onclick="log('✅ Div onclick works','ok')" style="cursor:pointer">
+  <div class="whr">Dobar dan</div>
+  <div class="wtr">Good day</div>
+  <div class="wplay">▶</div>
+</div>
+<div class="log" id="l2"></div>
+
+<h3>TEST 3 — Document delegation (our fix)</h3>
+<div class="wcard" data-hr="Hvala" data-tr="Thank you" style="cursor:pointer">
+  <button class="wmic" onclick="event.stopPropagation();log('✅ wmic stopProp works','ok','l3')">🎤</button>
+  <div class="whr">Hvala</div>
+  <div class="wtr">Thank you</div>
+  <div class="wplay">▶</div>
+</div>
+<div class="log" id="l3"></div>
+
+<h3>TEST 4 — speechSynthesis</h3>
+<button style="background:#7C3AED;color:white" onclick="testTTS()">▶ Speak "Dobar dan"</button>
+<div class="log" id="l4"></div>
+
+<h3>TEST 5 — webkitSpeechRecognition</h3>
+<button style="background:#DC2626;color:white" onclick="testMic()">🎤 Test mic</button>
+<div class="log" id="l5"></div>
+
+<h3>TEST 6 — Touch events</h3>
+<div style="background:#1e3a5f;padding:12px;border-radius:8px;margin:4px 0" 
+  ontouchstart="log('touchstart','info','l6')"
+  ontouchend="log('touchend','info','l6')"
+  onclick="log('click','ok','l6')">
+  Touch/tap here
+</div>
+<div class="log" id="l6"></div>
+
+<script>
+document.getElementById('info').textContent = 
+  'UA: ' + navigator.userAgent.substring(0,100);
+
+var currentLog = null;
+
+function log(msg, cls, logId) {
+  var id = logId || (currentLog || 'l1');
+  var box = document.getElementById(id);
+  if (!box) box = document.getElementById('l1');
+  var d = document.createElement('div');
+  d.className = 'entry ' + (cls||'info');
+  d.textContent = new Date().toLocaleTimeString() + ' ' + msg;
+  box.insertBefore(d, box.firstChild);
+}
+
+// Which log is "current" based on proximity
+document.addEventListener('click', function(e) {
+  // Find nearest log box
+  var el = e.target;
+  while (el && el !== document.body) {
+    if (el.nextElementSibling && el.nextElementSibling.classList && 
+        el.nextElementSibling.classList.contains('log')) {
+      currentLog = el.nextElementSibling.id;
+      break;
+    }
+    el = el.parentElement;
+  }
+});
+
+// TEST 3: document delegation
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.wmic')) return;
+  var card = e.target.closest('[data-hr]');
+  if (!card) return;
+  var hr = card.getAttribute('data-hr');
+  log('✅ Delegation fired: ' + hr, 'ok', 'l3');
+});
+
+function testTTS() {
+  var log4 = function(m,c){log(m,c,'l4');};
+  log4('Testing TTS...','info');
+  try {
+    if (!window.speechSynthesis) { log4('❌ speechSynthesis NOT supported','err'); return; }
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance('Dobar dan');
+    u.lang = 'hr-HR'; u.rate = 0.9;
+    var vs = speechSynthesis.getVoices();
+    log4('Voices available: ' + vs.length, 'info');
+    var v = vs.find(function(x){return x.lang==='hr-HR';}) || 
+            vs.find(function(x){return x.lang.startsWith('hr');});
+    if (v) { u.voice = v; log4('HR voice: ' + v.name, 'ok'); }
+    else { log4('No HR voice, using default', 'info'); }
+    u.onstart = function() { log4('✅ TTS started','ok'); };
+    u.onend = function() { log4('✅ TTS ended','ok'); };
+    u.onerror = function(e) { log4('❌ TTS error: '+e.error,'err'); };
+    speechSynthesis.speak(u);
+    // Android workaround: sometimes needs a tick
+    setTimeout(function() {
+      if (speechSynthesis.paused) speechSynthesis.resume();
+    }, 100);
+  } catch(e) { log('❌ Exception: '+e.message,'err','l4'); }
+}
+
+speechSynthesis.onvoiceschanged = function() {
+  var vs = speechSynthesis.getVoices();
+  log('Voices loaded: ' + vs.length, 'info', 'l4');
+};
+
+function testMic() {
+  var log5 = function(m,c){log(m,c,'l5');};
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { log5('❌ SpeechRecognition NOT supported','err'); return; }
+  log5('Starting recognition...','info');
+  try {
+    var r = new SR();
+    r.lang = 'hr-HR'; r.maxAlternatives = 1;
+    r.onstart = function() { log5('✅ Mic started - speak now','ok'); };
+    r.onresult = function(e) { log5('✅ Heard: "'+e.results[0][0].transcript+'"','ok'); };
+    r.onerror = function(e) { log5('❌ Mic error: '+e.error,'err'); };
+    r.onend = function() { log5('Mic ended','info'); };
+    r.start();
+  } catch(e) { log5('❌ Exception: '+e.message,'err'); }
+}
+</script>
+</body>
+</html>
