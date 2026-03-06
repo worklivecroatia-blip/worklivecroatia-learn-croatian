@@ -481,6 +481,14 @@ button.wmic:focus { outline: none; }
 .fc-speak-btn,.fc-rate-btn,.fc-nav-btn,.fc-flip-btn,.fc-close,.fc-filter button,[data-fcf]{
   position:relative;z-index:3;
 }
+
+.wo-target:empty::before {
+  content: "👆 Klikni riječi ispod →";
+  color: #C4B5FD;
+  font-size: 11px;
+  font-style: italic;
+  padding: 4px;
+}
 </style>
 </head>
 <body>
@@ -627,7 +635,7 @@ button.wmic:focus { outline: none; }
     </div>
     <div class="ex-grid">
       <div class="ex-box word-order"><div class="ex-title">🔀 9. Ayusin ang Pangungusap (Word Order)</div>
-<div class="wo-hint-txt">💡 I-drag o i-click ang mga salita</div>
+<div class="wo-hint-txt">💡 I-click ang mga salita para ilagay</div>
 <div class="wo-item" id="tl-wo-0"><div class="wo-translation">→ Zovem se Ana.</div><div class="wo-target" id="tl-wt-0"></div><div class="wo-words" id="tl-ww-0"><button class="wo-word" id="tl-w-0-0"  onclick="woClick('tl',0,0,'se',this)">se</button><button class="wo-word" id="tl-w-0-1"  onclick="woClick('tl',0,1,'Zovem',this)">Zovem</button><button class="wo-word" id="tl-w-0-2"  onclick="woClick('tl',0,2,'Ana.',this)">Ana.</button></div></div>
 <div class="wo-item" id="tl-wo-1"><div class="wo-translation">→ Radim u tvornici.</div><div class="wo-target" id="tl-wt-1"></div><div class="wo-words" id="tl-ww-1"><button class="wo-word" id="tl-w-1-0"  onclick="woClick('tl',1,0,'u',this)">u</button><button class="wo-word" id="tl-w-1-1"  onclick="woClick('tl',1,1,'tvornici.',this)">tvornici.</button><button class="wo-word" id="tl-w-1-2"  onclick="woClick('tl',1,2,'Radim',this)">Radim</button></div></div>
 <div class="wo-item" id="tl-wo-2"><div class="wo-translation">→ Trebam liječnika.</div><div class="wo-target" id="tl-wt-2"></div><div class="wo-words" id="tl-ww-2"><button class="wo-word" id="tl-w-2-0"  onclick="woClick('tl',2,0,'Trebam',this)">Trebam</button><button class="wo-word" id="tl-w-2-1"  onclick="woClick('tl',2,1,'liječnika.',this)">liječnika.</button></div></div>
