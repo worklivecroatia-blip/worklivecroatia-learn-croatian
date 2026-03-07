@@ -90,7 +90,7 @@ html{overflow-x:hidden}
 .wcard:hover .wplay,.wcard.on 
 .pcard{background:var(--sur);border-radius:12px;padding:12px 14px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;display:flex;align-items:flex-start;gap:10px}
 .pcard:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.09)}.pcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
-.pplay{flex:0 0 30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;flex-shrink:0}
+.pplay{flex:0 0 30px;width:30px;min-width:30px;max-width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;flex-shrink:0}
 .pcard.on .pplay{background:var(--acc,var(--navy))}
 .phr{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:1px}
 .ptr{font-size:11px;color:var(--muted);font-family:"Noto Sans",sans-serif;line-height:1.5}
@@ -2679,10 +2679,13 @@ function fcFlip(){
     if(!body) return;
     var nav=body.querySelector('.fc-nav');
     if(nav){
-      var div=document.createElement('div');
-      div.className='fc-rating';
-      div.innerHTML='<button class="fc-rate-btn fc-rate-good" onclick="fcRate(1)" style="max-width:180px;flex:2">⚡ Dalje</button><button class="fc-rate-btn fc-rate-easy" onclick="fcRate(2)">✅ Znam!</button>';
-      nav.parentNode.replaceChild(div,nav);
+      var acc2=FC_COLORS[fcLang]||'#0369A1';
+      var hr2=fcDeck[fcIdx]?fcDeck[fcIdx][0]:'';
+      var wrap=document.createElement('div');
+      wrap.innerHTML='<div style="text-align:center;margin-bottom:8px"><button class="fc-speak-btn" id="fcSB" style="background:'+acc2+'">▶ Izgovor</button></div><div class="fc-rating"><button class="fc-rate-btn fc-rate-good" onclick="fcRate(1)" style="max-width:180px;flex:2">⚡ Dalje</button><button class="fc-rate-btn fc-rate-easy" onclick="fcRate(2)">✅ Znam!</button></div>';
+      var sb2=wrap.querySelector('#fcSB');
+      if(sb2) sb2.addEventListener('click',function(e){e.stopPropagation();fcSpk(hr2);});
+      nav.parentNode.replaceChild(wrap,nav);
     }
   },560);
 }
