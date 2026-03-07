@@ -50,7 +50,7 @@ html{overflow-x:hidden}
 .cat-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
 .cat-line{flex:1;height:1px;background:var(--brd)}
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px}
-.wcard{background:var(--sur);border-radius:11px;padding:30px 12px 11px 12px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
+.wcard{background:var(--sur);border-radius:11px;padding:14px 12px 11px 12px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
 .wcard::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc,var(--navy));transform:scaleY(0);transform-origin:bottom;transition:transform .2s}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.1)}.wcard:hover::after,.wcard.on::after{transform:scaleY(1)}
 .wcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
@@ -58,7 +58,7 @@ html{overflow-x:hidden}
 .wtr{font-size:10.5px;color:var(--muted);font-family:"Noto Sans",sans-serif;line-height:1.4}
 .wph{font-size:9.5px;color:var(--acc,var(--navy));font-weight:600;margin-top:3px;font-style:italic}
 /* wplay styles moved to button.wplay above */
-.wmic{position:absolute;top:7px;right:38px;width:26px;height:26px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;opacity:.75;transition:opacity .2s;font-size:10px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation}
+.wmic{position:absolute;top:36px;right:7px;width:26px;height:26px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;opacity:.75;transition:opacity .2s;font-size:10px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation}
 .wcard:hover .wplay,.wcard:hover .wmic,.wcard.on .wmic,.wcard:active .wplay,.wcard:active .wmic{opacity:1}
 }
 .wmic.listening{background:#16A34A;animation:micpulse 0.8s ease-in-out infinite}
