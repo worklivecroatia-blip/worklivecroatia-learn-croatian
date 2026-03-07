@@ -50,7 +50,7 @@ html{overflow-x:hidden}
 .cat-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
 .cat-line{flex:1;height:1px;background:var(--brd)}
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px}
-.wcard{background:var(--sur);border-radius:11px;padding:14px 12px 11px 12px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
+.wcard{background:var(--sur);border-radius:11px;padding:16px 12px 11px 12px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
 .wcard::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc,var(--navy));transform:scaleY(0);transform-origin:bottom;transition:transform .2s}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.1)}.wcard:hover::after,.wcard.on::after{transform:scaleY(1)}
 .wcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
@@ -58,8 +58,8 @@ html{overflow-x:hidden}
 .wtr{font-size:10.5px;color:var(--muted);font-family:"Noto Sans",sans-serif;line-height:1.4}
 .wph{font-size:9.5px;color:var(--acc,var(--navy));font-weight:600;margin-top:3px;font-style:italic}
 /* wplay styles moved to button.wplay above */
-.wmic{position:absolute;top:36px;right:7px;width:26px;height:26px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;opacity:.75;transition:opacity .2s;font-size:10px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation}
-.wcard:hover .wplay,.wcard:hover .wmic,.wcard.on .wmic,.wcard:active .wplay,.wcard:active .wmic{opacity:1}
+
+.wcard:hover .wplay,.wcard:hover .wmic,.wcard.on .wmic,.wcard:active .wplay,.wcard:active 
 }
 .wmic.listening{background:#16A34A;animation:micpulse 0.8s ease-in-out infinite}
 @keyframes micpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
@@ -87,7 +87,7 @@ html{overflow-x:hidden}
 .lr-progress{width:100%;height:3px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:6px;display:none}
 .lr-progress-fill{height:100%;background:#F59E0B;border-radius:2px;transition:width .3s;width:0%}
 .lr-score-total{font-size:11px;color:rgba(255,255,255,.7);text-align:right;margin-top:4px;display:none}
-.wcard:hover .wplay,.wcard.on .wplay{opacity:1}
+.wcard:hover .wplay,.wcard.on 
 .pcard{background:var(--sur);border-radius:12px;padding:12px 14px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;display:flex;align-items:flex-start;gap:10px}
 .pcard:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.09)}.pcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
 .pplay{flex:0 0 30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;flex-shrink:0}
@@ -146,7 +146,7 @@ html{overflow-x:hidden}
 .btn{font-size:11px;padding:6px 10px}
 .controls{gap:5px}
 .spd-wrap{margin-left:0;width:100%}
-.wcard{padding:9px 10px}
+.wcard{padding:9px 80px 9px 10px}
 .whr{font-size:12.5px}
 .wtr{font-size:10px}
 .np-bar{padding:8px 12px;gap:8px}
@@ -251,8 +251,8 @@ html{overflow-x:hidden}
 
 /* ── Tablet 768px ─────────────────────────────────── */
 @media(max-width:768px){
-  .wmic{opacity:.85}
-  .wcard:hover .wplay,.wcard:hover .wmic{opacity:1}
+  
+  .wcard:hover .wplay,.wcard:hover 
   .ex-grid{grid-template-columns:1fr}
   .mw{padding:16px 14px 110px}
 }
@@ -278,12 +278,10 @@ html{overflow-x:hidden}
   
   /* Vocabulary cards — 2 columns */
   .wgrid{grid-template-columns:repeat(2,1fr);gap:6px}
-  .wcard{padding:28px 8px 9px 8px}
+  .wcard{padding:10px 80px 10px 8px}
   .whr{font-size:12px}
   .wtr{font-size:10px}
   .wph{font-size:9.5px}
-  .wplay{width:20px;height:20px;font-size:7px;top:6px;right:6px}
-  .wmic{width:20px;height:20px;font-size:9px;top:6px;right:29px}
   
   /* Phrase cards */
   .pcard{padding:10px 12px;gap:8px}
@@ -356,11 +354,9 @@ html{overflow-x:hidden}
   .hero-logo{width:48px;height:48px}
   .hero-brand{font-size:15px}
   .wgrid{grid-template-columns:repeat(2,1fr);gap:5px}
-  .wcard{padding:26px 7px 8px 7px}
+  .wcard{padding:9px 80px 9px 7px}
   .whr{font-size:11.5px}
   .wtr{font-size:9.5px}
-  .wplay{width:18px;height:18px;top:5px;right:5px}
-  .wmic{width:18px;height:18px;top:5px;right:26px}
   .ex-inp{min-width:60px;max-width:110px;font-size:11.5px}
   .ex-inp.s{min-width:55px;max-width:85px}
   .day-cell{font-size:11px}
@@ -376,11 +372,8 @@ html{overflow-x:hidden}
 /* ── Touch improvements (all mobile) ─────────────── */
 @media(hover:none){
   /* Always show play/mic on touch devices */
-  .wplay{opacity:.8}
-  .wmic{opacity:.8}
+  
   /* Bigger tap targets */
-  .wplay,.wmic{width:26px;height:26px}
-  .wmic{right:35px}
   .q-btn,.img-btn,.wo-word,.wo-placed,.lr-btn,.check-btn{
     min-height:38px;display:inline-flex;align-items:center;justify-content:center
   }
@@ -438,14 +431,12 @@ button.wplay:focus { outline: none; }
 /* The visible ▶ indicator is now a pseudo-element */
 
 /* wmic must be above wplay overlay */
-button.wmic { z-index: 2; position: absolute; }
 
 
 
 button.wplay:focus { outline: none; }
 
 /* wmic must sit above wplay overlay */
-.wmic { z-index: 2 !important; }
 /* wo-word button reset */
 button.wo-word {
   display: inline-block;
@@ -472,7 +463,7 @@ button.wo-word:focus { outline: none; }
 button.wplay:focus { outline: none; }
 button.wmic:focus { outline: none; }
 
-.wplay{position:absolute;top:7px;right:7px;width:26px;height:26px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;opacity:.75;transition:opacity .2s;font-size:8px;color:white;pointer-events:none;}
+
 
 .wcard *,.pcard *{cursor:pointer;}
 
@@ -489,6 +480,10 @@ button.wmic:focus { outline: none; }
   font-style: italic;
   padding: 4px;
 }
+
+/* ── wplay & wmic buttons ── */
+.wplay{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;opacity:.8;font-size:9px;color:white;pointer-events:none;transition:opacity .2s;}
+.wmic{position:absolute;top:44px;right:8px;width:28px;height:28px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;opacity:.8;font-size:11px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation;transition:opacity .2s;}
 </style>
 </head>
 <body>
@@ -2633,8 +2628,8 @@ function renderFCCard() {
       fcFBtn('numbers','🔢 Brojevi')+
     '</div>';
   var cardHTML=
-    '<div class="fc-card-wrap" id="fcCW">'+
-      '<button onclick="fcFlip()" style="position:absolute;inset:0;width:100%;height:100%;background:transparent;border:none;z-index:2;cursor:pointer;touch-action:manipulation;-webkit-appearance:none;"></button>'+
+    '<div class="fc-card-wrap" id="fcCW" onclick="fcFlip()" style="cursor:pointer">'+
+      
       '<div class="fc-card" id="fcCard">'+
         '<div class="fc-face fc-front">'+
           '<div class="fc-side-label">PRIJEVOD</div>'+
@@ -2645,7 +2640,7 @@ function renderFCCard() {
           '<div class="fc-side-label">HRVATSKA RIJEČ</div>'+
           '<div class="fc-hr-word">'+escH(hr)+'</div>'+
           (ph?'<div class="fc-phonetic">['+escH(ph)+']</div>':'')+
-          '<button class="fc-speak-btn" id="fcSB" style="background:'+acc+'">▶ Izgovor</button>'+
+          '<button class="fc-speak-btn" id="fcSB" style="background:'+acc+' onclick="event.stopPropagation();fcSpk(fcDeck[fcIdx]?fcDeck[fcIdx][0]:'')" ">▶ Izgovor</button>'+
         '</div>'+
       '</div>'+
     '</div>';
@@ -2657,8 +2652,7 @@ function renderFCCard() {
   body.innerHTML=filters+cardHTML+actions;
   var sb=document.getElementById('fcSB');
   if(sb) sb.addEventListener('click',function(e){e.stopPropagation();fcSpk(hr);});
-  var cw=document.getElementById('fcCW');
-  if(cw) cw.addEventListener('click',function(){fcFlip();});
+  // fcCW uses inline onclick
   // Attach filter button listeners (no inline onclick needed)
   var body2=document.getElementById('fcBody');
   if(body2) body2.querySelectorAll('[data-fcf]').forEach(function(btn){
