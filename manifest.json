@@ -1,0 +1,40 @@
+{
+  "name": "Učimo Hrvatski A1 – Work & Live Croatia",
+  "short_name": "Učimo HR",
+  "description": "Croatian A1 language learning app for foreign workers. 10 languages.",
+  "start_url": "/worklivecroatia-learn-croatian/",
+  "scope": "/worklivecroatia-learn-croatian/",
+  "display": "standalone",
+  "background_color": "#0F2240",
+  "theme_color": "#0F2240",
+  "orientation": "portrait-primary",
+  "lang": "hr",
+  "categories": ["education", "utilities"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Tagalog",
+      "url": "/worklivecroatia-learn-croatian/#tl",
+      "description": "Tagalog lekcije"
+    },
+    {
+      "name": "English",
+      "url": "/worklivecroatia-learn-croatian/#en",
+      "description": "English lessons"
+    }
+  ]
+}
