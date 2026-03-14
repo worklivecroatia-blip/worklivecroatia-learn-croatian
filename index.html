@@ -2700,8 +2700,8 @@ document.addEventListener('keydown', function(e) {
 function abcPlay(letter, example, el) {
   document.querySelectorAll('.abc-card').forEach(function(x){x.classList.remove('on');});
   if(el) el.classList.add('on');
-  var u = new SpeechSynthesisUtterance(letter + '. ' + example);
-  u.lang = 'hr-HR'; u.rate = 0.8;
+  var u = new SpeechSynthesisUtterance(letter);
+  u.lang = 'hr-HR'; u.rate = 0.7;
   speechSynthesis.cancel();
   speechSynthesis.speak(u);
 }
