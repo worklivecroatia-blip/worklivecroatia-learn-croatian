@@ -2,6 +2,8 @@
 <html lang="hr">
 <head>
 <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0F2240">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,7 +52,7 @@ html{overflow-x:hidden}
 .cat-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
 .cat-line{flex:1;height:1px;background:var(--brd)}
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px}
-.wcard{background:#FFFFFF;border-radius:11px;padding:16px 12px 11px 12px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
+.wcard{background:#FFFFFF!important;border-radius:11px;padding:10px 44px 10px 12px;min-height:82px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
 .wcard::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc,var(--navy));transform:scaleY(0);transform-origin:bottom;transition:transform .2s}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.1)}.wcard:hover::after,.wcard.on::after{transform:scaleY(1)}
 .wcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
@@ -88,7 +90,7 @@ html{overflow-x:hidden}
 .lr-progress-fill{height:100%;background:#F59E0B;border-radius:2px;transition:width .3s;width:0%}
 .lr-score-total{font-size:11px;color:rgba(255,255,255,.7);text-align:right;margin-top:4px;display:none}
 .wcard:hover .wplay,.wcard.on 
-.pcard{background:var(--sur);border-radius:12px;padding:12px 14px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;display:flex;align-items:flex-start;gap:10px}
+.pcard{background:#FFFFFF!important;border-radius:12px;padding:12px 14px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;display:flex;align-items:flex-start;gap:10px}
 .pcard:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.09)}.pcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
 .pplay{flex:0 0 30px;width:30px;min-width:30px;max-width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;flex-shrink:0}
 .pcard.on .pplay{background:var(--acc,var(--navy))}
@@ -146,7 +148,7 @@ html{overflow-x:hidden}
 .btn{font-size:11px;padding:6px 10px}
 .controls{gap:5px}
 .spd-wrap{margin-left:0;width:100%}
-.wcard{padding:9px 80px 9px 10px}
+.wcard{padding:9px 44px 9px 10px}
 .whr{font-size:12.5px}
 .wtr{font-size:10px}
 .np-bar{padding:8px 12px;gap:8px}
@@ -278,7 +280,7 @@ html{overflow-x:hidden}
   
   /* Vocabulary cards — 2 columns */
   .wgrid{grid-template-columns:repeat(2,1fr);gap:6px}
-  .wcard{padding:10px 80px 10px 8px}
+  .wcard{padding:9px 44px 9px 8px}
   .whr{font-size:12px}
   .wtr{font-size:10px}
   .wph{font-size:9.5px}
@@ -354,7 +356,7 @@ html{overflow-x:hidden}
   .hero-logo{width:48px;height:48px}
   .hero-brand{font-size:15px}
   .wgrid{grid-template-columns:repeat(2,1fr);gap:5px}
-  .wcard{padding:9px 80px 9px 7px}
+  .wcard{padding:9px 44px 9px 7px}
   .whr{font-size:11.5px}
   .wtr{font-size:9.5px}
   .ex-inp{min-width:60px;max-width:110px;font-size:11.5px}
@@ -475,8 +477,8 @@ button.wmic:focus { outline: none; }
 }
 
 /* ── wplay & wmic buttons ── */
-.wplay{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;opacity:.8;font-size:9px;color:white;pointer-events:none;transition:opacity .2s;}
-.wmic{position:absolute;bottom:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;opacity:.8;font-size:11px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation;transition:opacity .2s;}
+.wplay{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;pointer-events:none;}
+.wmic{position:absolute;top:44px;right:8px;width:30px;height:30px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:11px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation;}
 
 /* ABC SECTION */
 .abc-intro{background:rgba(124,58,237,.06);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--navy);}
