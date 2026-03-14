@@ -2,8 +2,6 @@
 <html lang="hr">
 <head>
 <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0F2240">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,7 +50,7 @@ html{overflow-x:hidden}
 .cat-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
 .cat-line{flex:1;height:1px;background:var(--brd)}
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px}
-.wcard{background:#FFFFFF!important;border-radius:11px;padding:10px 44px 10px 12px;min-height:82px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
+.wcard{background:#FFFFFF;border-radius:11px;padding:10px 12px 10px 12px;min-height:85px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;position:relative;user-select:none;-webkit-user-select:none}
 .wcard::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc,var(--navy));transform:scaleY(0);transform-origin:bottom;transition:transform .2s}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.1)}.wcard:hover::after,.wcard.on::after{transform:scaleY(1)}
 .wcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
@@ -90,7 +88,7 @@ html{overflow-x:hidden}
 .lr-progress-fill{height:100%;background:#F59E0B;border-radius:2px;transition:width .3s;width:0%}
 .lr-score-total{font-size:11px;color:rgba(255,255,255,.7);text-align:right;margin-top:4px;display:none}
 .wcard:hover .wplay,.wcard.on 
-.pcard{background:#FFFFFF!important;border-radius:12px;padding:12px 14px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;display:flex;align-items:flex-start;gap:10px}
+.pcard{background:var(--sur);border-radius:12px;padding:12px 14px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .17s;display:flex;align-items:flex-start;gap:10px}
 .pcard:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.09)}.pcard.on{border-color:var(--acc,var(--navy));background:#FFFBF5}
 .pplay{flex:0 0 30px;width:30px;min-width:30px;max-width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;flex-shrink:0}
 .pcard.on .pplay{background:var(--acc,var(--navy))}
@@ -148,7 +146,7 @@ html{overflow-x:hidden}
 .btn{font-size:11px;padding:6px 10px}
 .controls{gap:5px}
 .spd-wrap{margin-left:0;width:100%}
-.wcard{padding:9px 44px 9px 10px}
+.wcard{padding:9px 80px 9px 10px}
 .whr{font-size:12.5px}
 .wtr{font-size:10px}
 .np-bar{padding:8px 12px;gap:8px}
@@ -213,7 +211,7 @@ html{overflow-x:hidden}
 
 /* ── NEW EXERCISES ─────────────────────────────────── */
 .ex-box.quiz{background:#EFF6FF;border-color:#BFDBFE}
-
+.ex-box.img-pick{background:#F0FDF4;border-color:#BBF7D0}
 .ex-box.word-order{background:#FDF4FF;border-color:#E9D5FF}
 .quiz-item{margin-bottom:10px}
 .quiz-stmt{font-size:12.5px;color:#1e3a5f;font-family:"Noto Sans",sans-serif;margin-bottom:5px;line-height:1.5;font-weight:600}
@@ -223,13 +221,13 @@ html{overflow-x:hidden}
 .q-btn.correct{background:#DCFCE7;border-color:#16A34A;color:#15803D}
 .q-btn.wrong{background:#FEE2E2;border-color:#DC2626;color:#B91C1C}
 .q-btn.missed{background:#FEF9C3;border-color:#D97706;color:#92400E}
-
-
+.img-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.img-emoji{font-size:38px;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
 .img-choices{display:flex;gap:5px;flex-wrap:wrap}
-
-
-
-
+.img-btn{padding:6px 12px;border-radius:8px;font-size:11.5px;font-weight:700;cursor:pointer;border:1.5px solid #D1D5DB;background:white;color:#374151;font-family:"DM Sans",sans-serif;transition:all .15s;touch-action:manipulation}
+.img-btn:hover,.img-btn:active{border-color:#6B7280;background:#F9FAFB}
+.img-btn.correct{background:#DCFCE7;border-color:#16A34A;color:#15803D}
+.img-btn.wrong{background:#FEE2E2;border-color:#DC2626;color:#B91C1C}
 .wo-item{margin-bottom:12px}
 .wo-translation{font-size:11px;color:#7C3AED;font-family:"Noto Sans",sans-serif;margin-bottom:5px;font-style:italic}
 .wo-target{min-height:34px;border:2px dashed #C4B5FD;border-radius:8px;padding:4px 8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-bottom:5px;background:rgba(255,255,255,.7);transition:border-color .2s}
@@ -280,7 +278,7 @@ html{overflow-x:hidden}
   
   /* Vocabulary cards — 2 columns */
   .wgrid{grid-template-columns:repeat(2,1fr);gap:6px}
-  .wcard{padding:9px 44px 9px 8px}
+  .wcard{padding:10px 80px 10px 8px}
   .whr{font-size:12px}
   .wtr{font-size:10px}
   .wph{font-size:9.5px}
@@ -322,9 +320,9 @@ html{overflow-x:hidden}
   .q-btn{padding:6px 12px;font-size:11px}
   
   /* Image pick */
-  
-  
-  
+  .img-emoji{font-size:32px}
+  .img-btn{padding:6px 10px;font-size:11px}
+  .img-row{gap:8px}
   
   /* Word order */
   .wo-word,.wo-placed{padding:5px 9px;font-size:11.5px}
@@ -356,13 +354,13 @@ html{overflow-x:hidden}
   .hero-logo{width:48px;height:48px}
   .hero-brand{font-size:15px}
   .wgrid{grid-template-columns:repeat(2,1fr);gap:5px}
-  .wcard{padding:9px 44px 9px 7px}
+  .wcard{padding:9px 80px 9px 7px}
   .whr{font-size:11.5px}
   .wtr{font-size:9.5px}
   .ex-inp{min-width:60px;max-width:110px;font-size:11.5px}
   .ex-inp.s{min-width:55px;max-width:85px}
   .day-cell{font-size:11px}
-  
+  .img-btn{padding:5px 8px;font-size:10.5px}
   .q-btn{padding:5px 10px;font-size:10.5px}
   .wo-word,.wo-placed{padding:4px 8px;font-size:11px}
   .lr-btn{padding:6px 9px;font-size:10.5px}
@@ -376,7 +374,9 @@ html{overflow-x:hidden}
   /* Always show play/mic on touch devices */
   
   /* Bigger tap targets */
-  .q-btn,
+  .q-btn,.img-btn,.wo-word,.wo-placed,.lr-btn,.check-btn{
+    min-height:38px;display:inline-flex;align-items:center;justify-content:center
+  }
   .nav-tab{min-height:44px}
   .fc-nav-btn{width:48px;height:48px}
   /* Remove hover transforms on touch */
@@ -395,13 +395,18 @@ button,a,[onclick]{touch-action:manipulation;-webkit-tap-highlight-color:transpa
 
 /* Quiz/Image selected state */
 .q-btn.q-selected { background:#EFF6FF !important; border-color:#3B82F6 !important; font-weight:700; }
-
+.img-btn.img-selected { background:#EFF6FF !important; border-color:#3B82F6 !important; font-weight:700; }
 
 /* ── iOS tap fix ─────────────────────────────── */
 /* Makes ALL elements respond to tap on iOS Safari */
 * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 [onclick], button, a, [data-lang], .wo-word, .wcard, .wplay, 
-.q-btn, 
+.q-btn, .img-btn, .lr-btn, .nav-tab, .np-btn, .ex-btn {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 /* wcard is div, not button */
 button.wo-word {
@@ -477,28 +482,20 @@ button.wmic:focus { outline: none; }
 }
 
 /* ── wplay & wmic buttons ── */
-.wplay{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;pointer-events:none;}
-.wmic{position:absolute;top:44px;right:8px;width:30px;height:30px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:11px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation;}
+.wplay{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;opacity:.8;font-size:9px;color:white;pointer-events:none;transition:opacity .2s;}
+.wmic{position:absolute;top:46px;right:8px;width:28px;height:28px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;opacity:.8;font-size:11px;color:white;cursor:pointer;border:none;z-index:10;touch-action:manipulation;transition:opacity .2s;}
 
-/* ABC SECTION */
-.abc-intro{background:rgba(124,58,237,.06);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--navy);}
+.abc-intro{background:rgba(124,58,237,.06);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;}
 .abc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:16px;}
-.abc-card{background:var(--sur);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;border:1.5px solid var(--brd);transition:border-color .2s,box-shadow .2s;}
-.abc-card:hover,.abc-card.on{border-color:var(--acc);box-shadow:0 0 0 2px rgba(124,58,237,.15);}
-.abc-letter{font-size:26px;font-weight:900;color:var(--navy);line-height:1;}
-.abc-lower{font-size:13px;color:var(--muted);margin-top:1px;}
-.abc-example{font-size:10px;color:var(--acc);margin-top:3px;font-weight:600;}
+.abc-card{background:#fff;border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;border:1.5px solid var(--brd);transition:border-color .2s;}
+.abc-card:hover,.abc-card.on{border-color:var(--acc);}
+.abc-letter{font-size:28px;font-weight:900;color:var(--navy);line-height:1;}
+.abc-lower{font-size:13px;color:var(--muted);margin-top:2px;}
+.abc-example{font-size:11px;color:var(--acc);margin-top:4px;font-weight:600;}
 .abc-eng{font-size:9px;color:var(--muted);margin-top:2px;}
-.abc-btns{display:flex;justify-content:center;gap:4px;margin-top:6px;}
-.abc-speak{background:none;border:1px solid var(--brd);border-radius:6px;padding:2px 8px;font-size:12px;cursor:pointer;}
-.abc-speak:hover{background:var(--bg);}
-.abc-practice{min-height:32px;text-align:center;margin-top:8px;}
-.abc-result{font-size:13px;font-weight:700;color:#7C3AED;}
-
 </style>
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Ucimo HR">
-  <meta name="application-name" content="Ucimo HR">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-192.png">
   <script>
@@ -541,7 +538,7 @@ button.wmic:focus { outline: none; }
     <button class="nav-tab" data-lang="pa" onclick="sw('pa')">🇮🇳 ਪੰਜਾਬੀ</button>
     <button class="nav-tab" data-lang="bn" onclick="sw('bn')">🇧🇩 বাংলা</button>
     <button class="nav-tab" data-lang="uk" onclick="sw('uk')">🇺🇦 Українська</button>
-  <button class="nav-tab" data-lang="abc" onclick="sw('abc')">&#128292; ABC</button>
+  <button class="nav-tab" data-lang="abc" onclick="sw('abc')">🔤 ABC</button>
   </div>
 </div>
 <div class="mw">
@@ -1770,10 +1767,9 @@ button.wmic:focus { outline: none; }
 </div>
 </div>
 <div class="lang-sec" id="s-abc" style="--acc:#7C3AED">
-  <div class="sec-head"><div class="sec-flag">&#127469;&#127479;</div><div><div class="sec-title">Hrvatska Abeceda / Croatian Alphabet</div><div class="sec-desc">30 slova &middot; Alpabeto &middot; &#2357;&#2352;&#2381;&#2339;&#2350;&#2366;&#2354;&#2366; &middot; Alphabet &middot; Alfabeto &middot; Alifbo &middot; &#1575;&#1604;&#1571;&#1576;&#1580;&#1583;&#1610;&#1577; &middot; tap za izgovor</div></div></div>
+  <div class="sec-head"><div class="sec-flag">🇭🇷</div><div><div class="sec-title">Hrvatska Abeceda / Croatian Alphabet</div><div class="sec-desc">30 slova · tap za izgovor / tap to hear</div></div></div>
   <div class="abc-intro"><p>Hrvatska abeceda ima <strong>30 slova</strong>. Svako slovo se <strong>uvijek</strong> izgovara isto!</p><p>Croatian alphabet has <strong>30 letters</strong>. Every letter always sounds the same!</p></div>
-  <div class="abc-grid"><div class="abc-card" onclick="abcPlay('A','auto',this)"><div class="abc-letter">A</div><div class="abc-lower">a</div><div class="abc-example">auto</div><div class="abc-eng">AH</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('A')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('B','brod',this)"><div class="abc-letter">B</div><div class="abc-lower">b</div><div class="abc-example">brod</div><div class="abc-eng">B</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('B')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('C','cijeli',this)"><div class="abc-letter">C</div><div class="abc-lower">c</div><div class="abc-example">cijeli</div><div class="abc-eng">TS</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('C')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Č','čovjek',this)"><div class="abc-letter">Č</div><div class="abc-lower">č</div><div class="abc-example">čovjek</div><div class="abc-eng">Č-ch</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Č')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Ć','ćevapi',this)"><div class="abc-letter">Ć</div><div class="abc-lower">ć</div><div class="abc-example">ćevapi</div><div class="abc-eng">Ć</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Ć')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('D','dobar',this)"><div class="abc-letter">D</div><div class="abc-lower">d</div><div class="abc-example">dobar</div><div class="abc-eng">D</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('D')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Dž','džep',this)"><div class="abc-letter">Dž</div><div class="abc-lower">dž</div><div class="abc-example">džep</div><div class="abc-eng">DŽ</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Dž')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Đ','đak',this)"><div class="abc-letter">Đ</div><div class="abc-lower">đ</div><div class="abc-example">đak</div><div class="abc-eng">Đ</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Đ')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('E','euro',this)"><div class="abc-letter">E</div><div class="abc-lower">e</div><div class="abc-example">euro</div><div class="abc-eng">E</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('E')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('F','film',this)"><div class="abc-letter">F</div><div class="abc-lower">f</div><div class="abc-example">film</div><div class="abc-eng">F</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('F')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('G','grad',this)"><div class="abc-letter">G</div><div class="abc-lower">g</div><div class="abc-example">grad</div><div class="abc-eng">G</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('G')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('H','hvala',this)"><div class="abc-letter">H</div><div class="abc-lower">h</div><div class="abc-example">hvala</div><div class="abc-eng">H</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('H')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('I','ime',this)"><div class="abc-letter">I</div><div class="abc-lower">i</div><div class="abc-example">ime</div><div class="abc-eng">I</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('I')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('J','jabuka',this)"><div class="abc-letter">J</div><div class="abc-lower">j</div><div class="abc-example">jabuka</div><div class="abc-eng">J</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('J')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('K','kuća',this)"><div class="abc-letter">K</div><div class="abc-lower">k</div><div class="abc-example">kuća</div><div class="abc-eng">K</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('K')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('L','lijek',this)"><div class="abc-letter">L</div><div class="abc-lower">l</div><div class="abc-example">lijek</div><div class="abc-eng">L</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('L')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Lj','ljubav',this)"><div class="abc-letter">Lj</div><div class="abc-lower">lj</div><div class="abc-example">ljubav</div><div class="abc-eng">LJ</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Lj')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('M','more',this)"><div class="abc-letter">M</div><div class="abc-lower">m</div><div class="abc-example">more</div><div class="abc-eng">M</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('M')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('N','nos',this)"><div class="abc-letter">N</div><div class="abc-lower">n</div><div class="abc-example">nos</div><div class="abc-eng">N</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('N')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Nj','njega',this)"><div class="abc-letter">Nj</div><div class="abc-lower">nj</div><div class="abc-example">njega</div><div class="abc-eng">NJ</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Nj')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('O','oko',this)"><div class="abc-letter">O</div><div class="abc-lower">o</div><div class="abc-example">oko</div><div class="abc-eng">O</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('O')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('P','posao',this)"><div class="abc-letter">P</div><div class="abc-lower">p</div><div class="abc-example">posao</div><div class="abc-eng">P</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('P')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('R','ruka',this)"><div class="abc-letter">R</div><div class="abc-lower">r</div><div class="abc-example">ruka</div><div class="abc-eng">R</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('R')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('S','sat',this)"><div class="abc-letter">S</div><div class="abc-lower">s</div><div class="abc-example">sat</div><div class="abc-eng">S</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('S')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Š','šuma',this)"><div class="abc-letter">Š</div><div class="abc-lower">š</div><div class="abc-example">šuma</div><div class="abc-eng">Š-sh</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Š')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('T','tvornica',this)"><div class="abc-letter">T</div><div class="abc-lower">t</div><div class="abc-example">tvornica</div><div class="abc-eng">T</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('T')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('U','ulica',this)"><div class="abc-letter">U</div><div class="abc-lower">u</div><div class="abc-example">ulica</div><div class="abc-eng">U</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('U')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('V','voda',this)"><div class="abc-letter">V</div><div class="abc-lower">v</div><div class="abc-example">voda</div><div class="abc-eng">V</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('V')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Z','zemlja',this)"><div class="abc-letter">Z</div><div class="abc-lower">z</div><div class="abc-example">zemlja</div><div class="abc-eng">Z</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Z')" title="Izgovori">&#128266;</button></div></div><div class="abc-card" onclick="abcPlay('Ž','žena',this)"><div class="abc-letter">Ž</div><div class="abc-lower">ž</div><div class="abc-example">žena</div><div class="abc-eng">Ž-zh</div><div class="abc-btns"><button class="abc-speak" onclick="event.stopPropagation();abcSpeak('Ž')" title="Izgovori">&#128266;</button></div></div></div>
-  
+  <div class="abc-grid"><div class="abc-card" onclick="abcPlay('A','auto',this)"><div class="abc-letter">A</div><div class="abc-lower">a</div><div class="abc-example">auto</div><div class="abc-eng">AH</div></div><div class="abc-card" onclick="abcPlay('B','brod',this)"><div class="abc-letter">B</div><div class="abc-lower">b</div><div class="abc-example">brod</div><div class="abc-eng">B</div></div><div class="abc-card" onclick="abcPlay('C','cijeli',this)"><div class="abc-letter">C</div><div class="abc-lower">c</div><div class="abc-example">cijeli</div><div class="abc-eng">TS</div></div><div class="abc-card" onclick="abcPlay('Č','čovjek',this)"><div class="abc-letter">Č</div><div class="abc-lower">č</div><div class="abc-example">čovjek</div><div class="abc-eng">Č-ch</div></div><div class="abc-card" onclick="abcPlay('Ć','ćevapi',this)"><div class="abc-letter">Ć</div><div class="abc-lower">ć</div><div class="abc-example">ćevapi</div><div class="abc-eng">Ć</div></div><div class="abc-card" onclick="abcPlay('D','dobar',this)"><div class="abc-letter">D</div><div class="abc-lower">d</div><div class="abc-example">dobar</div><div class="abc-eng">D</div></div><div class="abc-card" onclick="abcPlay('Dž','džep',this)"><div class="abc-letter">Dž</div><div class="abc-lower">dž</div><div class="abc-example">džep</div><div class="abc-eng">DŽ</div></div><div class="abc-card" onclick="abcPlay('Đ','đak',this)"><div class="abc-letter">Đ</div><div class="abc-lower">đ</div><div class="abc-example">đak</div><div class="abc-eng">Đ</div></div><div class="abc-card" onclick="abcPlay('E','euro',this)"><div class="abc-letter">E</div><div class="abc-lower">e</div><div class="abc-example">euro</div><div class="abc-eng">E</div></div><div class="abc-card" onclick="abcPlay('F','film',this)"><div class="abc-letter">F</div><div class="abc-lower">f</div><div class="abc-example">film</div><div class="abc-eng">F</div></div><div class="abc-card" onclick="abcPlay('G','grad',this)"><div class="abc-letter">G</div><div class="abc-lower">g</div><div class="abc-example">grad</div><div class="abc-eng">G</div></div><div class="abc-card" onclick="abcPlay('H','hvala',this)"><div class="abc-letter">H</div><div class="abc-lower">h</div><div class="abc-example">hvala</div><div class="abc-eng">H</div></div><div class="abc-card" onclick="abcPlay('I','ime',this)"><div class="abc-letter">I</div><div class="abc-lower">i</div><div class="abc-example">ime</div><div class="abc-eng">I</div></div><div class="abc-card" onclick="abcPlay('J','jabuka',this)"><div class="abc-letter">J</div><div class="abc-lower">j</div><div class="abc-example">jabuka</div><div class="abc-eng">J</div></div><div class="abc-card" onclick="abcPlay('K','kuća',this)"><div class="abc-letter">K</div><div class="abc-lower">k</div><div class="abc-example">kuća</div><div class="abc-eng">K</div></div><div class="abc-card" onclick="abcPlay('L','lijek',this)"><div class="abc-letter">L</div><div class="abc-lower">l</div><div class="abc-example">lijek</div><div class="abc-eng">L</div></div><div class="abc-card" onclick="abcPlay('Lj','ljubav',this)"><div class="abc-letter">Lj</div><div class="abc-lower">lj</div><div class="abc-example">ljubav</div><div class="abc-eng">LJ</div></div><div class="abc-card" onclick="abcPlay('M','more',this)"><div class="abc-letter">M</div><div class="abc-lower">m</div><div class="abc-example">more</div><div class="abc-eng">M</div></div><div class="abc-card" onclick="abcPlay('N','nos',this)"><div class="abc-letter">N</div><div class="abc-lower">n</div><div class="abc-example">nos</div><div class="abc-eng">N</div></div><div class="abc-card" onclick="abcPlay('Nj','njega',this)"><div class="abc-letter">Nj</div><div class="abc-lower">nj</div><div class="abc-example">njega</div><div class="abc-eng">NJ</div></div><div class="abc-card" onclick="abcPlay('O','oko',this)"><div class="abc-letter">O</div><div class="abc-lower">o</div><div class="abc-example">oko</div><div class="abc-eng">O</div></div><div class="abc-card" onclick="abcPlay('P','posao',this)"><div class="abc-letter">P</div><div class="abc-lower">p</div><div class="abc-example">posao</div><div class="abc-eng">P</div></div><div class="abc-card" onclick="abcPlay('R','ruka',this)"><div class="abc-letter">R</div><div class="abc-lower">r</div><div class="abc-example">ruka</div><div class="abc-eng">R</div></div><div class="abc-card" onclick="abcPlay('S','sat',this)"><div class="abc-letter">S</div><div class="abc-lower">s</div><div class="abc-example">sat</div><div class="abc-eng">S</div></div><div class="abc-card" onclick="abcPlay('Š','šuma',this)"><div class="abc-letter">Š</div><div class="abc-lower">š</div><div class="abc-example">šuma</div><div class="abc-eng">Š-sh</div></div><div class="abc-card" onclick="abcPlay('T','tvornica',this)"><div class="abc-letter">T</div><div class="abc-lower">t</div><div class="abc-example">tvornica</div><div class="abc-eng">T</div></div><div class="abc-card" onclick="abcPlay('U','ulica',this)"><div class="abc-letter">U</div><div class="abc-lower">u</div><div class="abc-example">ulica</div><div class="abc-eng">U</div></div><div class="abc-card" onclick="abcPlay('V','voda',this)"><div class="abc-letter">V</div><div class="abc-lower">v</div><div class="abc-example">voda</div><div class="abc-eng">V</div></div><div class="abc-card" onclick="abcPlay('Z','zemlja',this)"><div class="abc-letter">Z</div><div class="abc-lower">z</div><div class="abc-example">zemlja</div><div class="abc-eng">Z</div></div><div class="abc-card" onclick="abcPlay('Ž','žena',this)"><div class="abc-letter">Ž</div><div class="abc-lower">ž</div><div class="abc-example">žena</div><div class="abc-eng">Ž-zh</div></div></div>
 </div>
 <div class="fc-overlay" id="fcOverlay"></div>
 
@@ -2701,8 +2697,6 @@ document.addEventListener('keydown', function(e) {
   else if (e.key === 'Escape') { e.preventDefault(); closeFlashcards(); }
 });
 
-
-// ABC FUNCTIONS
 function abcPlay(letter, example, el) {
   document.querySelectorAll('.abc-card').forEach(function(x){x.classList.remove('on');});
   if(el) el.classList.add('on');
@@ -2711,10 +2705,6 @@ function abcPlay(letter, example, el) {
   speechSynthesis.cancel();
   speechSynthesis.speak(u);
 }
-function abcSpeak(letter) {
-  var u = new SpeechSynthesisUtterance(letter);
-  u.lang = 'hr-HR'; u.rate = 0.7;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
-
+</script>
+</body>
+</html>
